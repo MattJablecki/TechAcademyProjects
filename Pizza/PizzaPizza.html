@@ -4,27 +4,58 @@
 		<title>Pizza! Pizza! Pizza!</title>
 		<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
 		<meta content="width=device-width,initial-scale=1.0" name="viewport">
-		<style>#menuBG{width:400px;height:470px;margin:10px auto;}#frmMenu{width:400px;height:200px;}
-		#totalPrice{width:200px;height:190px;margin:0 auto;float:right;}.left{width:200px;height:200px;float:left;}
-		.right{width:200px;height:200px;float:right;}#showText{width:200px;height:190px;margin:0px auto;float:left;}
-		#cart{top:0;margin:0px auto;width:400px;height:200px;}#btnOrder{margin:10px 0px 0px 100px;width:100px;height:40px}
-		</style>
 		<link rel="stylesheet" href="./pizza.css">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
 	</head>
 	<body>
-		<div id="menuBG">
-			<h1 style="margin:0 0px 0 20px;">Order Your Pizza!</h1>
-			<input id="btnOrder" type="button" onclick="getReceipt()" 
-				value="Place Order">
-			<form id="frmMenu">
-				
-				<div class="container">
+	
+	<!-- Nav Bar -->
+	
+				<nav class="navbar navbar-toggleable-md fixed-top navbar-light" style="background-color: #922B21;">
+				<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item active">
+							<a class="nav-link" href="#Order">Order Online <span class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#Home">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#Location">Location</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#deals">Deals</a>
+						</li>
+					</ul>
+					<form class="form-inline my-2 my-lg-0 hidden-sm-down">
+						<input class="form-control mr-sm-2" type="text" placeholder="Search">
+						<button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
+					</form>
+				</div>
+			</nav>
+	
+	<!-- Heading -->	
+	
+		<div class="jumbotron jumbotron-fluid text-center bg-success">
+			<div class="container">
+				<h1 class="display-4 pt-3">Portland Pizza Co.</h1>
+				<p class="lead">Home of the Famous Cheese Stuffed Crust</p>
+			</div>
+		</div>
+		
+	<!-- Menu Items -->
+		
+
+	<div class="container-fluid">
 					<div class="row">
-						<div class="col-sm">
+						<div class="col-sm-4 px-2" id="items">
 							<div class="menu">
-								<h3>Size:</h3>
+							<div class="mx-auto" style="width: 200px;" id="title">Size</div>
 									<input class="size" type="radio" name="Size" value="Personal Pizza"> Personal Pizza<br>
 									<input class="size" type="radio" name="Size" value="Medium Pizza"> Medium Pizza<br>
 									<input class="size" type="radio" name="Size" value="Large Pizza" checked> Large Pizza<br>
@@ -32,43 +63,44 @@
 							</div>
 						</div>
 						
-						<div class="col-sm">
+						<div class="col-sm-4 px-2" id="items">
 							<div class="menu">
-								<h3>Crust:</h3>
-									<input class="crust" type="radio" name="Crust" value="Plain" checked> Plain<br>
-									<input class="crust" type="radio" name="Crust" value="Garlic Butter"> Garlic Butter<br>
-									<input class="crust" type="radio" name="Crust" value="Cheese Stuffed"> Cheese Stuffed<br>
-									<input class="crust" type="radio" name="Crust" value="Spicy"> Spicy<br>
-									<input class="crust" type="radio" name="Crust" value="House Special"> House Special<br>
+								<div class="mx-auto" style="width: 200px;" id="title">Crust</div>
+									<input class="crust" type="radio" name="Crust" value="Plain Crust" checked> Plain<br>
+									<input class="crust" type="radio" name="Crust" value="Garlic Butter Crust"> Garlic Butter<br>
+									<input class="crust" type="radio" name="Crust" value="Cheese Stuffed Crust"> Cheese Stuffed<br>
+									<input class="crust" type="radio" name="Crust" value="Spicy Crust"> Spicy<br>
+									<input class="crust" type="radio" name="Crust" value="House Special Crust"> House Special<br>
 							</div>
 						</div>
 						
-						<div class="col-sm">
+						<div class="col-sm-4 px-2" id="items">
 							<div class="menu">
-								<h3>Cheese:</h3>
-									<input class="cheese" type="radio" name="Cheese" value="Regular" checked> Regular<br>
-									<input class="cheese" type="radio" name="Cheese" value="None"> None<br>
-									<input class="cheese" type="radio" name="Cheese" value="Extra Cheese"> Extra Cheese<br>
+								<div class="mx-auto" style="width: 200px;" id="title">Sauce</div>
+									<input class="sauce" type="radio" name="Sauce" value="Marinara Sauce" checked> Marinara<br>
+									<input class="sauce" type="radio" name="Sauce" value="White Sauce"> White Sauce<br>
+									<input class="sauce" type="radio" name="Sauce" value="BBQ Sauce"> BBQ<br>
+									<input class="sauce" type="radio" name="Sauce" value="No Sauce"> None<br>
 							</div>
 						</div>
 					</div>
 				</div>
 				
-				<div class="container">
+				<div class="container-fluid">
 					<div class="row">
-						<div class="col-sm">
-								<div class="menu">
-									<h3>Sauce:</h3>
-										<input class="sauce" type="radio" name="Sauce" value="Marinara" checked> Marinara<br>
-										<input class="sauce" type="radio" name="Sauce" value="White"> White Sauce<br>
-										<input class="sauce" type="radio" name="Sauce" value="BBQ"> BBQ<br>
-										<input class="sauce" type="radio" name="Sauce" value="None"> None<br>
-								</div>
+						<div class="col-sm-4 mt-5 px-2" id="items">
+							<div class="menu">
+								<div class="mx-auto" style="width: 200px;" id="title">Cheese</div>
+									<input class="cheese" type="radio" name="Cheese" value="Regular Cheese" checked> Regular<br>
+									<input class="cheese" type="radio" name="Cheese" value="No Cheese"> None<br>
+									<input class="cheese" type="radio" name="Cheese" value="Extra Cheese"> Extra Cheese<br>
+							</div>
 						</div>
 						
-						<div class="col-sm">
+						
+						<div class="col-sm-4 mt-5 px-2" id="items">
 							<div class="menu">
-								<h3>Meats:</h3>
+								<div class="mx-auto" style="width: 200px;" id="title">Meats</div>
 									<input class="meats" type="checkbox" name="Meat" value="Pepperoni"> Pepperoni<br>
 									<input class="meats" type="checkbox" name="Meat" value="Sausage"> Sausage <br>
 									<input class="meats" type="checkbox" name="Meat" value="Canadian Bacon"> Canadian Bacon<br> 
@@ -78,9 +110,11 @@
 							</div>
 						</div>
 						
-						<div class="col-sm">
+						
+						
+						<div class="col-sm-4 mt-5 px-2" id="items">
 							<div class="menu">
-								<h3>Veggies:</h3>
+								<div class="mx-auto" style="width: 200px;" id="title">Veggies</div>
 								<input class="veggies" type="checkbox" name="Veggies" value="Tomatoes"> Tomatoes<br>
 								<input class="veggies" type="checkbox" name="Veggies" value="Onions"> Onions<br>
 								<input class="veggies" type="checkbox" name="Veggies" value="Olives"> Olives<br> 
@@ -94,15 +128,40 @@
 				</div>
 				
 				
-			
-				
+	<!-- Order Button -->
+	
+	
+
+	
+<div class="row">
+  <div class="col-sm-10" >
+    <div class="text-center">
+      <button class="btn btn-dark mt-4 mb-4" id="singlebutton" onClick="getReceipt()">Place Order</button>
+    </div>
+  </div>
+</div>
 		
+				
+	<!-- Total Order -->
+	
+	<div class="container">
+		<div class="row justify-content-md-center">
+			<div class="col-md">
+			</div>
+			<div class="col-md" id="total">
+				<form id="form">
 				<div id="cart">
-					<div id="showText"></div>
+					<div id="showText"></div><br><br>
 					<div id="totalPrice"></div>
 				</div>
-			</form>
+				</form>
+				</div>
+			<div class="col-md">
+			</div>
+			</div>
 		</div>
+	</div>	
+		
 		<script src="final_drill_basic.js"></script>
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>

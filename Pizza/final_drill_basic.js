@@ -22,7 +22,76 @@ function getReceipt() {
 		sizeTotal = 16;
 	}
 	runningTotal = sizeTotal;
-	getVeggies(runningTotal,text1);
+	getCrust(runningTotal,text1);
+};	
+
+function getCrust (runningTotal, text1) {
+	var crustTotal = 0;
+	var crustArray = document.getElementsByClassName("crust");
+	for (var i = 0; i < crustArray.length; i++) {
+		if (crustArray[i].checked) {
+			var selectedCrust = crustArray[i].value;
+			text1 = text1+selectedCrust+"<br>";
+		}
+	}
+	if (selectedCrust === "Cheese Stuffed Crust") {
+		crustTotal = 3;
+	} else {
+		crustTotal = 0;
+	}
+	runningTotal = (runningTotal + crustTotal);
+	getSauce (runningTotal, text1);
+}
+
+function getSauce (runningTotal, text1) {
+	var sauceTotal = 0;
+	var sauceArray = document.getElementsByClassName("sauce");
+	for (var i = 0; i < sauceArray.length; i++) {
+		if (sauceArray[i].checked) {
+			var selectedSauce = sauceArray[i].value;
+			text1 = text1+selectedSauce+"<br>";
+		}
+	}
+	runningTotal = (runningTotal + sauceTotal);
+	getCheese (runningTotal, text1);
+}
+
+function getCheese (runningTotal, text1) {
+	var cheeseTotal = 0;
+	var cheeseArray = document.getElementsByClassName("cheese");
+	for (var i = 0; i < cheeseArray.length; i++) {
+		if (cheeseArray[i].checked) {
+			var selectedCheese = cheeseArray[i].value;
+			text1 = text1+selectedCheese+"<br>";
+		}
+	}
+	if (selectedCheese === "Extra Cheese") {
+		cheeseTotal = 3;
+	} else {
+		cheeseTotal = 0;
+	}
+	runningTotal = (runningTotal + cheeseTotal);
+	getMeat (runningTotal, text1);
+}
+
+function getMeat(runningTotal,text1) {
+	var meatTotal = 0;
+	var selectedMeat = [];
+	var meatArray = document.getElementsByClassName("meats");
+	for (var j = 0; j < meatArray.length; j++) {
+		if (meatArray[j].checked) {
+			selectedMeat.push(meatArray[j].value);
+			text1 = text1+meatArray[j].value+"<br>";
+		}
+	}
+	var meatCount = selectedMeat.length;
+	if (meatCount > 1) {
+		meatTotal = (meatCount - 1);
+	} else {
+		meatTotal = 0;
+	}
+	runningTotal = (runningTotal + meatTotal);
+	getVeggies (runningTotal, text1);
 };	
 
 function getVeggies(runningTotal,text1) {
@@ -45,4 +114,15 @@ function getVeggies(runningTotal,text1) {
 	document.getElementById("showText").innerHTML=text1;
 	document.getElementById("totalPrice").innerHTML = "</h3>Total: <strong>$"+runningTotal+".00"+"</strong></h3>";
 };	
+
+
+
+
+
+
+
+
+
+
+
 
